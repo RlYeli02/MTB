@@ -4,15 +4,17 @@ import {BrowserRouter, Route, Switch} from "react-router-dom"
 import Dashboard from "./Components/Dashboard"
 import Preferences from "./Components/Preferences"
 import Login from "./Components/Login/Login"
+import useToken from "./Components/App/useToken"
+
 
 function App() {
-  const [token, setToken]= useState()
+  const {token, setToken}=useToken()
   if(!token){
     return <Login setToken={setToken}/>
   }
   return (
     <div className="Wrapper">
-      <h1>Application</h1>
+      <h1>Welcome to the Application!</h1>
       <BrowserRouter>
       <Switch>
         <Route path="/dashboard">
